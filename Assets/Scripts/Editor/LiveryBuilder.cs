@@ -9,7 +9,23 @@ public class LiveryBuilder : ModBuilder<LiveryData, LiveryMetaData>
     public Texture2D Texture;
     [Range(0, 1)] public float Glossiness;
     public string DisplayName;
+
+    [StringOptions(
+        "",
+        "Boscali",
+        "Primeva"
+    )]
     public string Faction;
+
+    [StringOptions(
+        "",
+        "CI-22 Cricket",
+        "T/A-30 Compass",
+        "SAH-46 Chicane",
+        "FS-12 Revoker",
+        "EW-25 Medusa",
+        "SFB-81 Darkreach"
+    )]
     public string Aircraft;
 
     protected override string Label => "Skin";
