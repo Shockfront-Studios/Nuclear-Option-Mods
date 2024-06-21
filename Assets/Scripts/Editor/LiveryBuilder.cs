@@ -23,6 +23,7 @@ public class LiveryBuilder : ModBuilder<LiveryData, LiveryMetaData>
         "T/A-30 Compass",
         "SAH-46 Chicane",
         "FS-12 Revoker",
+        "KR-67 Ifrit",
         "EW-25 Medusa",
         "SFB-81 Darkreach"
     )]
