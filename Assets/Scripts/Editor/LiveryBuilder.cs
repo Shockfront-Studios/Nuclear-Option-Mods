@@ -37,7 +37,7 @@ public class LiveryBuilder : ModBuilder<LiveryData, LiveryMetaData>
         asset.Texture = Texture;
         asset.Glossiness = Glossiness;
         asset.Colors = TextureColorCalculator.GetPallet(Texture, 5)
-            .Select(x => new LiveryData.TextureColor { Color = x.color, Count = x.count })
+            .Select(x => new LiveryData.TextureColor { Color = UseCustomColor ? CustomColor : x.color, Count = x.count })
             .ToArray();
         return asset;
     }
@@ -51,6 +51,9 @@ public class LiveryBuilder : ModBuilder<LiveryData, LiveryMetaData>
             Aircraft = Aircraft,
         };
     }
+
+    public bool UseCustomColor = false;
+    public Color32 CustomColor;
 }
 
 internal static class TextureColorCalculator
