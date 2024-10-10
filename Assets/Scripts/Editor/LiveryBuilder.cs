@@ -29,6 +29,9 @@ public class LiveryBuilder : ModBuilder<LiveryData, LiveryMetaData>
     )]
     public string Aircraft;
 
+    public bool UseCustomColors;
+    public LiveryData.TextureColor[] Colors = new LiveryData.TextureColor[5];
+
     protected override string Label => "Skin";
 
     public override LiveryData CreateObject()
@@ -36,11 +39,17 @@ public class LiveryBuilder : ModBuilder<LiveryData, LiveryMetaData>
         var asset = ScriptableObject.CreateInstance<LiveryData>();
         asset.Texture = Texture;
         asset.Glossiness = Glossiness;
-        asset.Colors = TextureColorCalculator.GetPallet(Texture, 5)
-            .Select(x => new LiveryData.TextureColor { Color = x.color, Count = x.count })
-            .ToArray();
+        asset.Colors = UseCustomColors ? Colors : GetColorsFromTexture();
         return asset;
     }
+
+    public LiveryData.TextureColor[] GetColorsFromTexture()
+    {
+        return TextureColorCalculator.GetPallet(Texture, 5)
+            .Select(x => new LiveryData.TextureColor { Color = x.color, Count = x.count })
+            .ToArray();
+    }
+
 
     public override LiveryMetaData CreateMeta()
     {
@@ -50,6 +59,14 @@ public class LiveryBuilder : ModBuilder<LiveryData, LiveryMetaData>
             Faction = Faction,
             Aircraft = Aircraft,
         };
+    }
+
+    private void OnValidate()
+    {
+        if (Colors == null)
+            Colors = new LiveryData.TextureColor[5];
+        if (Colors.Length != 5)
+            Array.Resize(ref Colors, 5);
     }
 }
 

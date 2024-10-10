@@ -19,3 +19,25 @@ MonoBehaviour:
   DisplayName: Gloss Pink
   Faction: 
   Aircraft: CI-22 Cricket
+  UseCustomColors: 0
+  Colors:
+  - Color:
+      serializedVersion: 2
+      rgba: 4288696480
+    Count: 821193
+  - Color:
+      serializedVersion: 2
+      rgba: 4288696464
+    Count: 480391
+  - Color:
+      serializedVersion: 2
+      rgba: 4287647888
+    Count: 428179
+  - Color:
+      serializedVersion: 2
+      rgba: 4281348144
+    Count: 396763
+  - Color:
+      serializedVersion: 2
+      rgba: 4286595200
+    Count: 232510
