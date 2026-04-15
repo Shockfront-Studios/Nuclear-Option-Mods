@@ -1,10 +1,30 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
 public class LiveryBuilder : ModBuilder<LiveryData, LiveryMetaData>
 {
+    private static Dictionary<string, string> AircraftLookup = new Dictionary<string, string>()
+    {
+        // jsonKey, UntiName
+        {"COIN","CI-22 Cricket"},
+        {"trainer","T/A-30 Compass"},
+        {"UtilityHelo1","UH-90 Ibis"},
+        {"AttackHelo1","SAH-46 Chicane"},
+        {"CAS1","A-19 Brawler"},
+        {"Fighter1","FS-12 Revoker"},
+        {"SmallFighter1","FS-20 Vortex"},
+        {"QuadVTOL1","VL-49 Tarantula"},
+        {"Multirole1","KR-67 Ifrit"},
+        {"EW1","EW-25 Medusa"},
+        {"Darkreach","SFB-81 Darkreach"},
+        {"FastBomber1","Alkyon AB-4"},
+        {"UFO","???"},
+    };
+
+
     [Header("Livery Settings")]
     public Texture2D Texture;
     [Range(0, 1)] public float Glossiness;
@@ -21,12 +41,17 @@ public class LiveryBuilder : ModBuilder<LiveryData, LiveryMetaData>
         "",
         "CI-22 Cricket",
         "T/A-30 Compass",
+        "UH-90 Ibis",
         "SAH-46 Chicane",
+        "A-19 Brawler",
         "FS-12 Revoker",
+        "FS-20 Vortex",
         "VL-49 Tarantula",
         "KR-67 Ifrit",
         "EW-25 Medusa",
-        "SFB-81 Darkreach"
+        "SFB-81 Darkreach",
+        "Alkyon AB-4"
+    //"???", dont show ufo
     )]
     public string Aircraft;
 
@@ -54,11 +79,14 @@ public class LiveryBuilder : ModBuilder<LiveryData, LiveryMetaData>
 
     public override LiveryMetaData CreateMeta()
     {
+        var key = AircraftLookup.TryGetValue(Aircraft, out var k) ? k : "";
+
         return new LiveryMetaData
         {
             DisplayName = DisplayName,
             Faction = Faction,
             Aircraft = Aircraft,
+            AircraftKey = key,
         };
     }
 
