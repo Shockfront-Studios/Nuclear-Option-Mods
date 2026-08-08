@@ -21,4 +21,4 @@
 # Useful links
 - [Nuclear Option Discord](https://discord.gg/u64GtcNjkQ)
 - [Skin Creation Templates](https://steamcommunity.com/sharedfiles/filedetails/?id=3184335990)
-- [How to Build and Publish a Livery](https://steamcommunity.com/sharedfiles/filedetails/?id=3183672773)
+- [How to Build and Publish a Livery](https://steamcommunity.com/sharedfiles/filedetails/?id=3656861098)
