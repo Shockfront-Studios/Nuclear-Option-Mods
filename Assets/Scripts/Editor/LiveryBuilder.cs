@@ -21,6 +21,7 @@ public class LiveryBuilder : ModBuilder<LiveryData, LiveryMetaData>
         {"EW1","EW-25 Medusa"},
         {"Darkreach","SFB-81 Darkreach"},
         {"FastBomber1","Alkyon AB-4"},
+        {"VTOLTrainer1", "VT-7 Vagrant"},
         {"UFO","???"},
     };
 
@@ -50,7 +51,8 @@ public class LiveryBuilder : ModBuilder<LiveryData, LiveryMetaData>
         "KR-67 Ifrit",
         "EW-25 Medusa",
         "SFB-81 Darkreach",
-        "Alkyon AB-4"
+        "Alkyon AB-4",
+        "VT-7 Vagrant"
     //"???", dont show ufo
     )]
     public string Aircraft;
